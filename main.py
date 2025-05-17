@@ -4,12 +4,11 @@ from discord import app_commands
 import os
 from dotenv import load_dotenv
 
-# if not load_dotenv('configs.env'):
+if load_dotenv('configs.env'):
+    TOKEN = os.getenv('DISCORD_TOKEN')
+else:
+    TOKEN = os.environ['DISCORD_TOKEN']
     
-load_dotenv('configs.env')
-
-
-TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD_ID = discord.Object(id = 1047555977093853214)
 
 intents = discord.Intents.default()
